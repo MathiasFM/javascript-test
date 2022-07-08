@@ -3,21 +3,30 @@ function randomNum() {
 }
 
 function computerPlay() {
-    let RPS = randomNum();
-    if(RPS <= 33) {
-        console.log("ROCK!");
-    } else if(RPS <= 66) {
-        console.log("PAPER!");
+    //RPS = rock, paper, scissor
+    let computerRPS = randomNum();
+    if(computerRPS <= 33) {
+        return "ROCK"
+    } else if(computerRPS <= 66) {
+        return "PAPER"
     } else {
-        console.log("SCISSOR!");
+        return "SCISSOR"
     }
+    
+    
 }
 
 
 function playRound(playerSelection, computerSelection) {
-
+    if(computerSelection === playerSelection) {
+        console.log("Tie");
+    } else if(computerSelection !== playerSelection) {
+        console.log("You lose");
+    } else {
+        console.log("SCISSOR");
+    }
 }
 
-const playerSelection = "rock";
+const playerSelection = "ROCK";
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
