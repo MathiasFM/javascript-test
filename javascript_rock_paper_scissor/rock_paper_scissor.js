@@ -20,23 +20,34 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
 
     let playerSelectionCaseIn = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
-    console.log(playerSelectionCaseIn);
 
-    if(computerSelection === playerSelectionCaseIn) {
-        console.log(`Tie computer chose: ${computerSelection} You chose: ${playerSelectionCaseIn}`);
-    } else if(computerSelection === "Rock" && playerSelectionCaseIn === "Scissor") {
-        console.log(`You lose ${computerSelection} beats ${playerSelectionCaseIn}`);
-    } else if(computerSelection === "Paper" && playerSelectionCaseIn === "Rock") {
-        console.log(`You lose ${computerSelection} beats ${playerSelectionCaseIn}`);
-    } else if(computerSelection === "Scissor" && playerSelectionCaseIn === "Paper") {
-        console.log(`You lose ${computerSelection} beats ${playerSelectionCaseIn}`);
-    } else if(!(playerSelectionCaseIn == "Rock" || playerSelectionCaseIn == "Paper" || playerSelectionCaseIn == "Scissor")) {
-        console.log(`${playerSelectionCaseIn} is not accepted, please try again.`);
+    if(computerSelection == playerSelectionCaseIn) {
+        return `It's a Tie! Computer chose ${computerSelection}, and you also chose ${playerSelectionCaseIn}. Try again!`;
+    } else if(computerSelection == "Rock" && playerSelectionCaseIn == "Scissor") {
+        return `You Lose! ${computerSelection} beats ${playerSelectionCaseIn}`;
+    } else if(computerSelection == "Paper" && playerSelectionCaseIn == "Rock") {
+        return `You Lose! ${computerSelection} beats ${playerSelectionCaseIn}`;
+    } else if(computerSelection == "Scissor" && playerSelectionCaseIn == "Paper") {
+        return `You Lose! ${computerSelection} beats ${playerSelectionCaseIn}`;
+    } else if(playerSelectionCaseIn != "Rock" && playerSelectionCaseIn != "Paper" && playerSelectionCaseIn != "Scissor") {
+        return `${playerSelectionCaseIn} is not accepted, please try again.`
     } else {
-        console.log(`You win Player ${playerSelectionCaseIn} beats Computer ${computerSelection}`);
+        return `You Win! ${playerSelectionCaseIn} beats ${computerSelection}`;
     }
 }
 
-const playerSelection = "Paper";
+const playerSelection = "PapEr";
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        console.log(playRound( playerSelection, computerSelection));
+    }
+}
+console.log(game())
+
+//AND method: else if(playerSelectionCaseIn != "Rock" && playerSelectionCaseIn != "Paper" && playerSelectionCaseIn != "Scissor") 
+//OR method: else if(!(playerSelectionCaseIn == "Rock" || playerSelectionCaseIn == "Paper" || playerSelectionCaseIn == "Scissor"))
+
+
