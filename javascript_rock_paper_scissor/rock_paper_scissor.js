@@ -12,8 +12,6 @@ function computerPlay() {
     } else {
         return "Scissor"
     }
-    
-    
 }
 
 let playerScore = 0;
@@ -49,7 +47,6 @@ let playerWinRound = ""
 let tieRound = ""
 //AND method: else if(playerSelectionCaseIn != "Rock" && playerSelectionCaseIn != "Paper" && playerSelectionCaseIn != "Scissor") 
 //OR method: else if(!(playerSelectionCaseIn == "Rock" || playerSelectionCaseIn == "Paper" || playerSelectionCaseIn == "Scissor"))
-//, `You Win! ${playerSelectionCaseIn} beats ${computerSelection}`
 
 function game() {
     for (let i = 0; i < 50; i++) {
@@ -57,7 +54,11 @@ function game() {
         const computerSelection = computerPlay();
         console.log(playRound(playerSelection, computerSelection));
         
-        if(playerScore == 5 || computerScore == 5) {
+        if(playerScore == 5) {
+            console.log("You WIN: The player won.");
+            break;
+        } else if(computerScore == 5) {
+            console.log("You LOSE: The computer won.");
             break;
         } else if(gameError > 0) {
             break;
